@@ -10,10 +10,15 @@ def rabin_karp(text_to_find, text, prime_number, number_of_characters=256):
         text_hash = (number_of_characters * text_hash + ord(text[i])) % prime_number
     for i in range(length_of_text - length_of_pattern + 1):
         if pattern_hash == text_hash:
-            pattern_indexes.append("Pattern " + text_to_find + " found at index "
+            for j in range (length_of_pattern):
+                if text[i+j]!=text_to_find[j]:
+                    break
+                else: j+=1
+            if j==length_of_pattern:
+                pattern_indexes.append("Pattern " + text_to_find + " found at index "
                                    + str(i) + "-" + str(i + len(text_to_find) - 1))
         if i < length_of_text - length_of_pattern:
-            text_hash = (number_of_characters * (text_hash - ord(text[i]) *
+            text_hash = (number_of_characters * text_hash - ord(text[i] *
                                                  pow(number_of_characters, length_of_pattern - 1)) +
                          ord(text[i + length_of_pattern])) % prime_number
     return pattern_indexes
