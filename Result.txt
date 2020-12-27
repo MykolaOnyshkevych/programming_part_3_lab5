@@ -1,0 +1,1 @@
+['Pattern BA found at index 2-3', 'Pattern BA found at index 4-5', 'Pattern BA found at index 6-7', 'Pattern BA found at index 8-9']
